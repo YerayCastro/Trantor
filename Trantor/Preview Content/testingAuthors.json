@@ -1,0 +1,38 @@
+[
+    {
+        "id": "531EDFA6-A361-4E15-873F-45E4EA0AF120",
+        "name": "H. G. Wells"
+    },
+    {
+        "id": "529E6C18-1D27-4056-BB47-9173637E4D5C",
+        "name": "Edgar Rice Burroughs"
+    },
+    {
+        "name": "Kurt Vonnegut",
+        "id": "1C4B8114-AF06-470B-B08E-C36096BD3FD6"
+    },
+    {
+        "name": "Ayn Rand",
+        "id": "2E2C1253-5631-45A6-8899-62C5F9007F1A"
+    },
+    {
+        "name": "Jules Verne",
+        "id": "43BC9D93-D88B-45B0-8180-8B9FDD992B1F"
+    },
+    {
+        "name": "Arthur Conan Doyle",
+        "id": "28B4BF58-B848-4CCD-A783-07A2CD829221"
+    },
+    {
+        "name": "Philip K. Dick",
+        "id": "B6F60590-43D2-471D-9F50-2D39B1475C09"
+    },
+    {
+        "name": "Robert Sheckley",
+        "id": "B3965E84-6B3B-41A7-A2F1-33BBA849F323"
+    },
+    {
+        "name": "John Berryman",
+        "id": "B9E6A3CA-6C9F-47D8-B997-5D8EB7A9A6FB"
+    }
+]
