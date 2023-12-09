@@ -45,6 +45,18 @@ struct DataTest: DataInteractor {
     }
 }
 
+struct ImageTest: ImageInteractor {
+    func getImage(url: URL) async throws -> UIImage? {
+        let file = url.lastPathComponent
+        // Devolvemos la imágen.
+        return UIImage(named: file)
+    }
+}
+
+extension ImageVM {
+    static let test = ImageVM(interactor: ImageTest())
+}
+
 extension TrantorVM {
     static let preview = TrantorVM(interactor: DataTest())
 }

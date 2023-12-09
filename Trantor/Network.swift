@@ -15,6 +15,9 @@ protocol DataInteractor {
 }
 
 struct Network: DataInteractor {
+    // Se recupera la imágen de la carpeta de caché.
+    let cache = URL.cachesDirectory
+    
     // Para usar la misma instancia
     static let shared = Network()
     
@@ -45,4 +48,5 @@ struct Network: DataInteractor {
     func getAuthors() async throws -> [Author] {
         try await getJSON(request: .get(url: .getAuthors), type: [Author].self)
     }
+    
 }

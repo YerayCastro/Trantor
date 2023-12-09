@@ -21,6 +21,8 @@ struct ContentView: View {
     // Variable para la navegación por estados.
     @State var selected: Book?
     
+    @Namespace private var namespace
+    
     
     // Navegación con estados
     var body: some View {
@@ -29,7 +31,7 @@ struct ContentView: View {
             // En SwiftUI si algo tiene opacidad 0, NO está.
                 .opacity(selected == nil ? 1.0 : 0.0)
             if selected != nil {
-                BookDetail(selected: $selected)
+                BookDetail(selected: $selected, namespace: namespace)
             }
         }
         // Para la animación del botón.
@@ -43,26 +45,29 @@ struct ContentView: View {
             ScrollView {
                 LazyVGrid(columns: [item]) {
                     ForEach(vm.books.books) { book in
-                        AsyncImage(url: book.cover) { cover in
-                            BookCoverView(cover: cover, book: book)
-                        } placeholder: {
-                            BookPlaceholder(book: book)
-                        }
-                        .onTapGesture {
-                            selected = book
-                        }
-                        // Crear contextMenu.Que marca los libros como leídos,o no leídos.
-                        .contextMenu {
-                            Button {
-                                // Llamo a la función y le paso el contexto
-                                try? vm.toggleReaded(book: book, context: context)
-                            } label: {
-                                if readedBooks.contains(where: { $0.id == book.id }) {
-                                    Label("Mark as unread", systemImage: "book")
-                                } else {
-                                    Label("Mark as read", systemImage: "book.fill")
+                        if book != selected {
+                            BookCoverView(book: book, namespace: namespace)
+                                .onTapGesture {
+                                    selected = book
                                 }
-                            }
+                            // Crear contextMenu.Que marca los libros como leídos,o no leídos.
+                                .contextMenu {
+                                    Button {
+                                        // Llamo a la función y le paso el contexto
+                                        try? vm.toggleReaded(book: book, context: context)
+                                    } label: {
+                                        if readedBooks.contains(where: { $0.id == book.id }) {
+                                            Label("Mark as unread", systemImage: "book")
+                                        } else {
+                                            Label("Mark as read", systemImage: "book")
+                                        }
+                                    }
+                                }
+                                .padding()
+                        } else {
+                            Rectangle()
+                                .fill(.clear)
+                                .frame(width: 150, height: 230)
                         }
                     }
                 }
@@ -80,12 +85,12 @@ struct ContentView: View {
                 }
             }
         }
-        
     }
 }
 
 #Preview {
     ContentView.preview
-        .environment(TrantorVM.preview)
         .modelContainer(testModelContainer)
 }
+
+

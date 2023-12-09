@@ -18,6 +18,8 @@
 		3C188AB02B1757C000507203 /* BookDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C188AAF2B1757C000507203 /* BookDetail.swift */; };
 		3C188AB22B17AD2300507203 /* StateMachines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C188AB12B17AD2300507203 /* StateMachines.swift */; };
 		3C188AB42B17B08600507203 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C188AB32B17B08600507203 /* SplashView.swift */; };
+		3C4CE5C42B1B3B5B005B4D21 /* ImageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4CE5C32B1B3B5B005B4D21 /* ImageInteractor.swift */; };
+		3C4CE5C62B1B3D81005B4D21 /* ImageVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4CE5C52B1B3D81005B4D21 /* ImageVM.swift */; };
 		3C61D7252B18959A00948869 /* AppStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C61D7242B18959A00948869 /* AppStateView.swift */; };
 		3C61D7272B18A29100948869 /* NetworkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C61D7262B18A29100948869 /* NetworkStatus.swift */; };
 		3C61D7292B18AA1C00948869 /* NoConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C61D7282B18AA1C00948869 /* NoConnectionView.swift */; };
@@ -52,6 +54,8 @@
 		3C188AAF2B1757C000507203 /* BookDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetail.swift; sourceTree = "<group>"; };
 		3C188AB12B17AD2300507203 /* StateMachines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateMachines.swift; sourceTree = "<group>"; };
 		3C188AB32B17B08600507203 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		3C4CE5C32B1B3B5B005B4D21 /* ImageInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInteractor.swift; sourceTree = "<group>"; };
+		3C4CE5C52B1B3D81005B4D21 /* ImageVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageVM.swift; sourceTree = "<group>"; };
 		3C61D7232B188DD500948869 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		3C61D7242B18959A00948869 /* AppStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStateView.swift; sourceTree = "<group>"; };
 		3C61D7262B18A29100948869 /* NetworkStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatus.swift; sourceTree = "<group>"; };
@@ -100,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				3C07597F2B14A29200338C8B /* TrantorVM.swift */,
+				3C4CE5C52B1B3D81005B4D21 /* ImageVM.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -201,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				3CE020972B0F700C00CFF06D /* Network.swift */,
+				3C4CE5C32B1B3B5B005B4D21 /* ImageInteractor.swift */,
 				3C61D7262B18A29100948869 /* NetworkStatus.swift */,
 			);
 			name = Interactors;
@@ -282,6 +288,7 @@
 				3CE020872B0F6C5400CFF06D /* PreviewData.swift in Sources */,
 				3C61D7252B18959A00948869 /* AppStateView.swift in Sources */,
 				3C6551342B1653E2001517D4 /* SwiftDataPreview.swift in Sources */,
+				3C4CE5C62B1B3D81005B4D21 /* ImageVM.swift in Sources */,
 				3C0759872B14D13D00338C8B /* BottomTitleView.swift in Sources */,
 				3C07598B2B14D50B00338C8B /* ReadedBooks.swift in Sources */,
 				3C188AB02B1757C000507203 /* BookDetail.swift in Sources */,
@@ -304,6 +311,7 @@
 				3CE020752B0F639000CFF06D /* TrantorApp.swift in Sources */,
 				3C61D7292B18AA1C00948869 /* NoConnectionView.swift in Sources */,
 				3CE0208B2B0F6CC100CFF06D /* NetworkError.swift in Sources */,
+				3C4CE5C42B1B3B5B005B4D21 /* ImageInteractor.swift in Sources */,
 				3CE0208F2B0F6CED00CFF06D /* URL.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

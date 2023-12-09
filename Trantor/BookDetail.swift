@@ -15,8 +15,12 @@ struct BookDetail: View {
     
     @State private var loaded = false
     
-    init(selected: Binding<Book?>) {
+    
+    let namespace:Namespace.ID
+    
+    init(selected: Binding<Book?>, namespace: Namespace.ID) {
         _selected = selected
+        self.namespace = namespace
         if let book = selected.wrappedValue {
             self.book = book
         }
@@ -26,11 +30,20 @@ struct BookDetail: View {
         ZStack(alignment: .topTrailing) {
             ScrollView {
                 LazyVStack {
-                    AsyncImage(url: book.cover) { cover in
-                        BookCoverView(cover: cover, book: book, big: true)
-                    } placeholder: {
-                        BookPlaceholder(book: book)
-                    }
+                    BookCoverView(book: book, big: true, namespace: namespace)
+                        .overlay {
+                            // Cuando hace scroll la pantalla se cierra.
+                            GeometryReader { proxy in
+                                Color.clear
+                                    .preference(key: ScrollOffset.self, 
+                                                value: proxy.frame(in: .global).minY)
+                            }
+                        }
+                        .onPreferenceChange(ScrollOffset.self) { value in
+                            if value > 250 {
+                                selected = nil
+                            }
+                        }
                     Text(book.title)
                         .font(.title)
                         .bold()
@@ -45,6 +58,7 @@ struct BookDetail: View {
                                 .font(.caption)
                         }
                         .padding(.vertical)
+                        .offset(y: !loaded ? 300 : selected != nil ? 0 : 300)
                     }
                     if let summary = book.summary {
                         VStack(alignment: .leading) {
@@ -54,6 +68,7 @@ struct BookDetail: View {
                                 .font(.caption)
                         }
                         .padding(.bottom)
+                        .offset(y: !loaded ? 300 : selected != nil ? 0 : 300)
                     }
                     VStack(alignment: .leading) {
                         HStack {
@@ -97,6 +112,6 @@ struct BookDetail: View {
 }
 
 #Preview {
-    BookDetail(selected: .constant(.test))
+    BookDetail(selected: .constant(.test), namespace: Namespace().wrappedValue)
         .environment(TrantorVM.preview)
 }
